@@ -1,0 +1,18 @@
+{
+	"name": "transport-logger",
+	"version": "0.1.0",
+	"description": "A transport based logging mechanism for node.js",
+	"main": "lib/transportlogger.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/bryan-m-hughes/transport-logger.git"
+	},
+	"keywords": [
+		"log",
+		"logger"
+	],
+	"author": "Bryan Hughes <bryan@theoreticalideations.com> (https://theoreticalideations.com)",
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"gitHead": "8f7c9e294a52fb07100e411c937504d1a9514545"
+}
