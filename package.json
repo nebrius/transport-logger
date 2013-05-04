@@ -11,8 +11,13 @@
 		"log",
 		"logger"
 	],
-	"author": "Bryan Hughes <bryan@theoreticalideations.com> (https://theoreticalideations.com)",
+	"engines": {
+		"node": ">=0.8.x"
+	},
+	"scripts": {
+		"test": "jasmine-node test/"
+	},
+	"author": "Bryan Hughes <bryan@theoreticalideations.com> (http://theoreticalideations.com)",
 	"license": "MIT",
-	"readmeFilename": "README.md",
-	"gitHead": "8f7c9e294a52fb07100e411c937504d1a9514545"
+	"readmeFilename": "README.md"
 }
