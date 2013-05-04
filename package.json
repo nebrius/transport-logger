@@ -15,7 +15,7 @@
 		"node": ">=0.8.x"
 	},
 	"scripts": {
-		"test": "jasmine-node test/"
+		"test": "node test/bootstrap.js"
 	},
 	"author": "Bryan Hughes <bryan@theoreticalideations.com> (http://theoreticalideations.com)",
 	"license": "MIT",
