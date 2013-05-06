@@ -27,7 +27,7 @@ var os = require('os'),
 	Logger = require('../../../'),
 	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-1-' + Date.now() + '.log'),
 	logger = new Logger({
-		file: file,
+		destination: file,
 		minLevel: 'trace'
 	});
 

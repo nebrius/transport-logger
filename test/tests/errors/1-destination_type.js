@@ -22,24 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-var os = require('os'),
-	path = require('path'),
-	Logger = require('../../../'),
-	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-1-' + Date.now() + '.log'),
-	logger = new Logger({
-		destination: file
-	}),
-	data,
-	i, len = 1;
-
-while(len <= 1000000) {
-	data = '';
-	for (i = 0; i < len; i++) {
-		data += i + ':';
-	}
-	data += '$';
-	logger.info(data);
-	len *= 10;
-}
-
-console.log(file);
+var Logger = require('../../../');
+new Logger({
+	destination: 5
+});
