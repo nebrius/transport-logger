@@ -23,6 +23,15 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../');
-new Logger({
-	destination: 5
-});
+try {
+	new Logger({
+		minLevel: 'bad'
+	});
+	console.log('failed');
+} catch (e) {
+	if (e.message !== 'Invalid minimum logging level "bad"') {
+		console.log('failed');
+	} else {
+		console.log('passed');
+	}
+}
