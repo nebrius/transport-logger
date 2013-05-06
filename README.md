@@ -15,6 +15,12 @@ A multi-transport logger inspired by [winston](https://github.com/flatiron/winst
 
 ## Basic usage
 
+Install via npm:
+
+```
+npm install transport-logger
+```
+
 ### Default logging
 
 Instantiating a logger without any arguments creates a console logger with five levels ('error', 'warn', 'info', 'debug', and 'trace') and a minimum logging level of 'info'.
