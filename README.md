@@ -77,7 +77,7 @@ To log to a file, specify a path in the options object:
 ```JavaScript
 var Logger = require('../../../'),
 	logger = new Logger({
-		file: 'path/to/logfile'
+		destination: 'path/to/logfile'
 	});
 
 logger.error('error');
@@ -94,7 +94,7 @@ To log to multiple transports, specify an array of configuration options
 ```JavaScript
 var Logger = require('../../../'),
 	logger = new Logger([{
-		file: 'path/to/logfile',
+		destination: 'path/to/logfile',
 		minLevel: 'trace'
 	}, {
 		minLevel: 'debug'
