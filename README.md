@@ -49,7 +49,7 @@ info
 The output can be customized as follows:
 
 ```JavaScript
-var Logger = require('../../../'),
+var Logger = require('transport-logger'),
 	logger = new Logger({
 		minLevel: 'trace',
 		timestamp: true,
@@ -81,7 +81,7 @@ Further customization of output can be accomplished using a formatter callback f
 To log to a file, specify a path in the options object:
 
 ```JavaScript
-var Logger = require('../../../'),
+var Logger = require('transport-logger'),
 	logger = new Logger({
 		destination: 'path/to/logfile'
 	});
@@ -98,7 +98,7 @@ logger.trace('trace');
 To log to multiple transports, specify an array of configuration options
 
 ```JavaScript
-var Logger = require('../../../'),
+var Logger = require('transport-logger'),
 	logger = new Logger([{
 		destination: 'path/to/logfile',
 		minLevel: 'trace'
@@ -120,7 +120,7 @@ To use the default console logger as one of the transports, just specify an empt
 To use custom log levels, specify an object mapping log level names to colors as the second argument to the Logger constructor:
 
 ```JavaScript
-var Logger = require('../../../'),
+var Logger = require('transport-logger'),
 	logger = new Logger({
 		minLevel: 'b',
 		colorize: true
@@ -159,7 +159,7 @@ Note: if one of the transports is a console transport and the log level is not a
 If the built-in options are not sufficient for your logging needs, you can define a formatter function to perform any arbitrary formatting:
 
 ```JavaScript
-var Logger = require('../../../'),
+var Logger = require('transport-logger'),
 	logger = new Logger({
 		formatter: function (messages, level, settings) {
 			return level.id + '?' + messages.join('+');
@@ -224,7 +224,7 @@ new Logger(transports, settings);
 				<tr>
 					<td>minLevel &lt;optional&gt;</td>
 					<td>String</td>
-					<td>The minimum logging level (default 'info')</td>
+					<td>The minimum logging level (default 'info'). If something falsey is passed in, then nothing is logged. This can be used to implement a --silent flag in the application</td>
 				</tr>
 				<tr>
 					<td>formatter &lt;optional&gt;</td>

@@ -34,7 +34,7 @@ var path = require('path'),
 	exec = require('child_process').exec,
 	fs = require('fs');
 
-describe('Console tests', function() {
+describe('Messages tests', function() {
 
 	it('Multiple Messages', function() {
 		var finished = false,
@@ -168,6 +168,31 @@ describe('Console tests', function() {
 			}
 			expect(consoleContents).toEqual(data);
 			expect(fileContents).toEqual(data);
+			expect(output.stderr).toEqual('');
+			expect(output.error).toBeNull();
+		});
+	});
+
+	it('Silent logging', function() {
+		var finished = false,
+			output;
+		runs(function () {
+			exec('node ' + path.join('tests', 'messages', '6-silent'), {
+				cwd: __dirname
+			}, function (error, stdout, stderr) {
+				finished = true;
+				output = {
+					stdout: stdout.replace('\n\r', '\n'),
+					stderr: stderr.replace('\n\r', '\n'),
+					error: error
+				};
+			});
+		});
+		waitsFor(function () {
+			return finished;
+		});
+		runs(function () {
+			expect(output.stdout).toEqual('');
 			expect(output.stderr).toEqual('');
 			expect(output.error).toBeNull();
 		});

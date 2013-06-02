@@ -35,7 +35,7 @@ var path = require('path'),
 	exec = require('child_process').exec,
 	dateRegex = '[A-Z][a-z]{2} [A-Z][a-z]{2} [0-9]{2} [0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.*';
 
-describe('Console tests', function() {
+describe('File tests', function() {
 
 	it('Default values', function() {
 		var finished = false,
