@@ -25,17 +25,22 @@ THE SOFTWARE.
 var os = require('os'),
 	path = require('path'),
 	Logger = require('../../../'),
-	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-3-' + Date.now() + '.log'),
-	logger = new Logger({
-		destination: file,
-		minLevel: 'trace',
-		colorize: true
-	});
+	file1 = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-messages-7-1-' + Date.now() + '.log'),
+	file2 = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-messages-7-2-' + Date.now() + '.log'),
+	logger = new Logger([{
+		destination: file1,
+		name: 'file1'
+	}, {
+		destination: file2,
+		name: 'file2'
+	}, {
+		name: 'console'
+	}]);
 
-logger.error('error');
-logger.warn('warn');
-logger.info('info');
-logger.debug('debug');
-logger.trace('trace');
+logger.info({
+	file1: 'a-file-1',
+	file2: 'a-file-2',
+	console: 'a-console'
+}, 'common');
 
-console.log(file);
+console.log(file1 + ':' + file2);

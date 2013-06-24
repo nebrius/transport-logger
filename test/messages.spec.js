@@ -197,4 +197,40 @@ describe('Messages tests', function() {
 			expect(output.error).toBeNull();
 		});
 	});
+
+	it('Named streams', function() {
+		var finished = false,
+			output;
+		runs(function () {
+			exec('node ' + path.join('tests', 'messages', '7-named'), {
+				cwd: __dirname
+			}, function (error, stdout, stderr) {
+				finished = true;
+				output = {
+					stdout: stdout.replace('\n\r', '\n'),
+					stderr: stderr.replace('\n\r', '\n'),
+					error: error
+				};
+			});
+		});
+		waitsFor(function () {
+			return finished;
+		});
+		runs(function () {
+			var consoleContents = output.stdout.trim(),
+				logPath = consoleContents.substring(consoleContents.lastIndexOf('\n') + 1),
+				logPath1 = logPath.split(':')[0],
+				logPath2 = logPath.split(':')[1],
+				file1Contents = fs.readFileSync(logPath1).toString(),
+				file2Contents = fs.readFileSync(logPath2).toString();
+			fs.unlinkSync(logPath1);
+			fs.unlinkSync(logPath2);
+			consoleContents = consoleContents.substring(0, consoleContents.length - logPath.length);
+			expect(consoleContents).toEqual('a-console common\n');
+			expect(file1Contents).toEqual('a-file-1 common\n');
+			expect(file2Contents).toEqual('a-file-2 common\n');
+			expect(output.stderr).toEqual('');
+			expect(output.error).toBeNull();
+		});
+	});
 });

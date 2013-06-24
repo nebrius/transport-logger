@@ -25,7 +25,7 @@ THE SOFTWARE.
 var os = require('os'),
 	path = require('path'),
 	Logger = require('../../../'),
-	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-1-' + Date.now() + '.log'),
+	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-2-' + Date.now() + '.log'),
 	logger = new Logger({
 		destination: file,
 		minLevel: 'trace'
