@@ -198,7 +198,7 @@ describe('Messages tests', function() {
 		});
 	});
 
-	it('Named streams', function() {
+	it('Named transports', function() {
 		var finished = false,
 			output;
 		runs(function () {

@@ -1,3 +1,8 @@
+## 0.1.3
+
+### New Features
+* Introduced support for named transports. With named transports, you can specify a separate log message for each transport.
+
 ## 0.1.2
 
 ### New Features

@@ -10,6 +10,8 @@ A multi-transport logger inspired by [winston](https://github.com/flatiron/winst
 	* [Logging to a file](#logging-to-a-file)
 * [Using multiple transports](#using-multiple-transports)
 * [Custom log levels](#custom-log-levels)
+* [Named transports](#named-transports)
+* [Formatter functions](#formatter-functions)
 * [Complete API](#complete-api)
 * [License](#license)
 
@@ -154,6 +156,24 @@ Available colors are 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan
 
 Note: if one of the transports is a console transport and the log level is not a native console method, the closest log level that is on console will be found. For example, if [syslog](http://en.wikipedia.org/wiki/Syslog#Severity_levels) levels are defined, then emergency, alert, and critical are specified, they will be logged via ```console.error()```.
 
+## Named transports
+
+Each transport can have a name assigned to it, so that they can be referenced later. With named transports, you can specify a different message for each transport in a log. This can be used, for example, to log a message that is localized for the user to the console, but log a message that is localized for the developer to a file.
+
+```JavaScript
+var Logger = require('transport-logger'),
+	logger = new Logger([{
+		name: 'file',
+		destination: 'path/to/logfile'
+	},{
+		name: 'console'
+	}]);
+logger.info({
+	console: 'Dies ist eine Nachricht',
+	file: 'This is a message'
+})
+```
+
 ## Formatter functions
 
 If the built-in options are not sufficient for your logging needs, you can define a formatter function to perform any arbitrary formatting:
@@ -235,6 +255,11 @@ new Logger(transports, settings);
 					<td>destination &lt;optional&gt;</td>
 					<td>String | stream.Writable</td>
 					<td>The path to the log file, or an existing stream. If a file path is specified, it does not have to exist already. If the file exists, new log messages are appended to the existing contents. Takes precedence over the stream property.</td>
+				</tr>
+				<tr>
+					<td>name &lt;optional&gt;</td>
+					<td>String</td>
+					<td>The name of the transport</td>
 				</tr>
 			</table>
 		</td>
