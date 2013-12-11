@@ -1,6 +1,6 @@
 {
 	"name": "transport-logger",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "A transport based logging mechanism for node.js",
 	"main": "lib/transportlogger.js",
 	"repository": {
@@ -9,7 +9,8 @@
 	},
 	"keywords": [
 		"log",
-		"logger"
+		"logger",
+		"logging"
 	],
 	"engines": {
 		"node": ">=0.8.x"

@@ -95,6 +95,24 @@ logger.debug('debug');
 logger.trace('trace');
 ```
 
+When logging to a file, it may be useful to cap files at a certain size. Setting the maxLines option will cause the current log file to be moved to a new filed called [destination].# once maxLines number of lines is reached. The number at the end the filename is incremented each time a new file is archived, such that [destination].1 is older than [destination].2
+
+```JavaScript
+var Logger = require('transport-logger'),
+	logger = new Logger({
+		destination: 'path/to/logfile',
+		maxLines: 5
+	});
+
+logger.error('error');
+logger.warn('warn');
+logger.info('info');
+logger.debug('debug');
+logger.trace('trace'); // Will cause a new log file to be created
+logger.info('new'); // Will be the first line logged to the new file
+```
+
+
 ## Using multiple transports
 
 To log to multiple transports, specify an array of configuration options

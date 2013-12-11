@@ -1,3 +1,8 @@
+## 0.1.4
+
+### New Features
+* Added the ability to archive logs after they reach a certain size
+
 ## 0.1.3
 
 ### New Features

@@ -234,4 +234,46 @@ describe('File tests', function() {
 			expect(output.error).toBeNull();
 		});
 	});
+
+	it('Max Lines', function() {
+		var finished = false,
+			output;
+		runs(function () {
+			exec('node ' + path.join('tests', 'file', '8-max_lines'), {
+				cwd: __dirname
+			}, function (error, stdout, stderr) {
+				finished = true;
+				output = {
+					stdout: stdout.replace('\n\r', '\n'),
+					stderr: stderr.replace('\n\r', '\n'),
+					error: error
+				};
+			});
+		});
+		waitsFor(function () {
+			return finished;
+		});
+		runs(function () {
+			var logPath = output.stdout.trim(),
+				contents,
+				i,
+				j,
+				expectedContents;
+
+			for (i = 1; i < 5; i++) {
+				contents = fs.readFileSync(logPath + '.' + i).toString();
+				fs.unlinkSync(logPath + '.' + i);
+				expectedContents = '';
+				for (j = 0; j < 5; j++) {
+					expectedContents += 'line ' + ((i - 1) * 5 + j) + '\n';
+				}
+				expect(contents).toEqual(expectedContents);
+			}
+			contents = fs.readFileSync(logPath).toString();
+			fs.unlinkSync(logPath);
+			expect(contents).toEqual('');
+			expect(output.stderr).toEqual('');
+			expect(output.error).toBeNull();
+		});
+	});
 });
