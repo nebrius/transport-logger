@@ -23,7 +23,7 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../'),
-	logger = new Logger();
+    logger = new Logger();
 
 logger.error('error');
 logger.warn('warn');

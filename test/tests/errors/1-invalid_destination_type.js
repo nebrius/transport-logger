@@ -24,14 +24,14 @@ THE SOFTWARE.
 
 var Logger = require('../../../');
 try {
-	new Logger({
-		destination: 5
-	});
-	console.log('failed');
+  new Logger({
+    destination: 5
+  });
+  console.log('failed');
 } catch (e) {
-	if (e.message !== 'Invalid destination specified. A destination must be a string, a writable stream instance, or undefined') {
-		console.log('failed');
-	} else {
-		console.log('passed');
-	}
+  if (e.message !== 'Invalid destination specified. A destination must be a string, a writable stream instance, or undefined') {
+    console.log('failed');
+  } else {
+    console.log('passed');
+  }
 }

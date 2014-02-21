@@ -31,57 +31,57 @@ waitsFor
 */
 
 var path = require('path'),
-	exec = require('child_process').exec;
+    exec = require('child_process').exec;
 
 describe('Error tests', function() {
 
-	it('Invalid destination type', function() {
-		var finished = false,
-			output;
-		runs(function () {
-			exec('node ' + path.join('tests', 'errors', '1-invalid_destination_type'), {
-				cwd: __dirname
-			}, function (error, stdout, stderr) {
-				finished = true;
-				output = {
-					stdout: stdout.replace('\n\r', '\n'),
-					stderr: stderr.replace('\n\r', '\n'),
-					error: error
-				};
-			});
-		});
-		waitsFor(function () {
-			return finished;
-		});
-		runs(function () {
-			expect(output.stdout).toEqual('passed\n');
-			expect(output.stderr).toEqual('');
-			expect(output.error).toBeNull();
-		});
-	});
+  it('Invalid destination type', function() {
+    var finished = false,
+        output;
+    runs(function () {
+      exec('node ' + path.join('tests', 'errors', '1-invalid_destination_type'), {
+        cwd: __dirname
+      }, function (error, stdout, stderr) {
+        finished = true;
+        output = {
+          stdout: stdout.replace('\n\r', '\n'),
+          stderr: stderr.replace('\n\r', '\n'),
+          error: error
+        };
+      });
+    });
+    waitsFor(function () {
+      return finished;
+    });
+    runs(function () {
+      expect(output.stdout).toEqual('passed\n');
+      expect(output.stderr).toEqual('');
+      expect(output.error).toBeNull();
+    });
+  });
 
-	it('Invalid min level', function() {
-		var finished = false,
-			output;
-		runs(function () {
-			exec('node ' + path.join('tests', 'errors', '2-invalid_min_level'), {
-				cwd: __dirname
-			}, function (error, stdout, stderr) {
-				finished = true;
-				output = {
-					stdout: stdout.replace('\n\r', '\n'),
-					stderr: stderr.replace('\n\r', '\n'),
-					error: error
-				};
-			});
-		});
-		waitsFor(function () {
-			return finished;
-		});
-		runs(function () {
-			expect(output.stdout).toEqual('passed\n');
-			expect(output.stderr).toEqual('');
-			expect(output.error).toBeNull();
-		});
-	});
+  it('Invalid min level', function() {
+    var finished = false,
+        output;
+    runs(function () {
+      exec('node ' + path.join('tests', 'errors', '2-invalid_min_level'), {
+        cwd: __dirname
+      }, function (error, stdout, stderr) {
+        finished = true;
+        output = {
+          stdout: stdout.replace('\n\r', '\n'),
+          stderr: stderr.replace('\n\r', '\n'),
+          error: error
+        };
+      });
+    });
+    waitsFor(function () {
+      return finished;
+    });
+    runs(function () {
+      expect(output.stdout).toEqual('passed\n');
+      expect(output.stderr).toEqual('');
+      expect(output.error).toBeNull();
+    });
+  });
 });

@@ -23,12 +23,12 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../'),
-	logger = new Logger({
-		minLevel: 'trace',
-		timestamp: true,
-		prependLevel: true,
-		colorize: true
-	});
+    logger = new Logger({
+      minLevel: 'trace',
+      timestamp: true,
+      prependLevel: true,
+      colorize: true
+    });
 
 logger.error('error');
 logger.warn('warn');

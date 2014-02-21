@@ -23,16 +23,16 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../'),
-	logger = new Logger(),
-	data,
-	i, len = 1;
+    logger = new Logger(),
+    data,
+    i, len = 1;
 
 while(len <= 1000000) {
-	data = '';
-	for (i = 0; i < len; i++) {
-		data += i + ':';
-	}
-	data += '$';
-	logger.info(data);
-	len *= 10;
+  data = '';
+  for (i = 0; i < len; i++) {
+    data += i + ':';
+  }
+  data += '$';
+  logger.info(data);
+  len *= 10;
 }

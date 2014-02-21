@@ -23,6 +23,6 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../'),
-	logger = new Logger();
+    logger = new Logger();
 
 logger.info('1', '2', '3', '4', '5');

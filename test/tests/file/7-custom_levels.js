@@ -23,31 +23,31 @@ THE SOFTWARE.
 */
 
 var os = require('os'),
-	path = require('path'),
-	Logger = require('../../../'),
-	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-7-' + Date.now() + '.log'),
-	logger = new Logger({
-		destination: file,
-		minLevel: 'b',
-		colorize: true
-	}, {
-		levels: [{
-				id: 'a',
-				color: 'red'
-			}, {
-				id: 'b',
-				color: 'green'
-			}, {
-				id: 'c',
-				color: 'blue'
-			}, {
-				id: 'd',
-				color: 'cyan'
-			}, {
-				id: 'e',
-				color: 'magenta'
-			}]
-	});
+    path = require('path'),
+    Logger = require('../../../'),
+    file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-7-' + Date.now() + '.log'),
+    logger = new Logger({
+      destination: file,
+      minLevel: 'b',
+      colorize: true
+    }, {
+      levels: [{
+          id: 'a',
+          color: 'red'
+        }, {
+          id: 'b',
+          color: 'green'
+        }, {
+          id: 'c',
+          color: 'blue'
+        }, {
+          id: 'd',
+          color: 'cyan'
+        }, {
+          id: 'e',
+          color: 'magenta'
+        }]
+    });
 
 logger.a('a');
 logger.b('b');

@@ -1,24 +1,24 @@
 {
-	"name": "transport-logger",
-	"version": "0.1.5",
-	"description": "A transport based logging mechanism for node.js",
-	"main": "lib/transportlogger.js",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/bryan-m-hughes/transport-logger.git"
-	},
-	"keywords": [
-		"log",
-		"logger",
-		"logging"
-	],
-	"engines": {
-		"node": ">=0.8.x"
-	},
-	"scripts": {
-		"test": "node test/bootstrap.js"
-	},
-	"author": "Bryan Hughes <bryan@theoreticalideations.com> (http://theoreticalideations.com)",
-	"license": "MIT",
-	"readmeFilename": "README.md"
+  "name": "transport-logger",
+  "version": "0.1.5",
+  "description": "A transport based logging mechanism for node.js",
+  "main": "lib/transportlogger.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bryan-m-hughes/transport-logger.git"
+  },
+  "keywords": [
+    "log",
+    "logger",
+    "logging"
+  ],
+  "engines": {
+    "node": ">=0.8.x"
+  },
+  "scripts": {
+    "test": "node test/bootstrap.js"
+  },
+  "author": "Bryan Hughes <bryan@theoreticalideations.com> (http://theoreticalideations.com)",
+  "license": "MIT",
+  "readmeFilename": "README.md"
 }

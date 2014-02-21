@@ -23,11 +23,11 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../'),
-	logger = new Logger({
-		formatter: function (messages, level, settings) {
-			return level.id + '?' + messages.join('+');
-		}
-	});
+    logger = new Logger({
+      formatter: function (messages, level, settings) {
+        return level.id + '?' + messages.join('+');
+      }
+    });
 
 logger.error('error', 'foo');
 logger.warn('warn', 'foo');

@@ -23,9 +23,9 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../'),
-	logger = new Logger({
-		minLevel: 'trace'
-	});
+    logger = new Logger({
+      minLevel: 'trace'
+    });
 
 logger.error('error');
 logger.warn('warn');

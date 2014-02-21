@@ -23,10 +23,10 @@ THE SOFTWARE.
 */
 
 var Logger = require('../../../'),
-	logger = new Logger({
-		minLevel: 'trace',
-		timestamp: true
-	});
+    logger = new Logger({
+      minLevel: 'trace',
+      timestamp: true
+    });
 
 logger.error('error');
 logger.warn('warn');

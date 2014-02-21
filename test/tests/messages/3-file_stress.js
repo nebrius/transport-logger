@@ -23,23 +23,23 @@ THE SOFTWARE.
 */
 
 var os = require('os'),
-	path = require('path'),
-	Logger = require('../../../'),
-	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-messages-3-' + Date.now() + '.log'),
-	logger = new Logger({
-		destination: file
-	}),
-	data,
-	i, len = 1;
+    path = require('path'),
+    Logger = require('../../../'),
+    file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-messages-3-' + Date.now() + '.log'),
+    logger = new Logger({
+      destination: file
+    }),
+    data,
+    i, len = 1;
 
 while(len <= 1000000) {
-	data = '';
-	for (i = 0; i < len; i++) {
-		data += i + ':';
-	}
-	data += '$';
-	logger.info(data);
-	len *= 10;
+  data = '';
+  for (i = 0; i < len; i++) {
+    data += i + ':';
+  }
+  data += '$';
+  logger.info(data);
+  len *= 10;
 }
 
 console.log(file);

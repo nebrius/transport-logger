@@ -23,14 +23,14 @@ THE SOFTWARE.
 */
 
 var os = require('os'),
-	path = require('path'),
-	Logger = require('../../../'),
-	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-3-' + Date.now() + '.log'),
-	logger = new Logger({
-		destination: file,
-		minLevel: 'trace',
-		colorize: true
-	});
+    path = require('path'),
+    Logger = require('../../../'),
+    file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-3-' + Date.now() + '.log'),
+    logger = new Logger({
+      destination: file,
+      minLevel: 'trace',
+      colorize: true
+    });
 
 logger.error('error');
 logger.warn('warn');

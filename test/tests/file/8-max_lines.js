@@ -23,17 +23,17 @@ THE SOFTWARE.
 */
 
 var os = require('os'),
-	path = require('path'),
-	Logger = require('../../../'),
-	file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-8-' + Date.now() + '.log'),
-	logger = new Logger({
-		destination: file,
-		maxLines: 5
-	}),
-	i;
+    path = require('path'),
+    Logger = require('../../../'),
+    file = path.join((os.tmpdir || os.tmpDir)(), 'transport-logger-file-8-' + Date.now() + '.log'),
+    logger = new Logger({
+      destination: file,
+      maxLines: 5
+    }),
+    i;
 
 for (i = 0; i < 20; i++) {
-	logger.info('line ' + i);
+  logger.info('line ' + i);
 }
 
 console.log(file);
