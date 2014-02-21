@@ -1,3 +1,8 @@
+## 0.1.5
+
+### Bug fixes
+* Fixed a bug where maxLines couldn't be retroactively applied properly to logs with more than maxLines
+
 ## 0.1.4
 
 ### New Features
