@@ -1,12 +1,13 @@
 {
   "name": "transport-logger",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A transport based logging mechanism for node.js",
   "main": "lib/transportlogger.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bryan-m-hughes/transport-logger.git"
+    "url": "https://gitlab.theoreticalideations.com/nebrius/transport-logger"
   },
+  "homepage": "https://gitlab.theoreticalideations.com/nebrius/transport-logger",
   "keywords": [
     "log",
     "logger",

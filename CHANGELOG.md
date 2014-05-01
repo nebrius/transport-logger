@@ -1,3 +1,8 @@
+## 0.1.6
+
+### Miscellaneous
+* Updated package to point to new repo
+
 ## 0.1.5
 
 ### Bug fixes
