@@ -14,9 +14,12 @@
     "logging"
   ],
   "scripts": {
-    "test": "node test/bootstrap.js"
+    "test": "jasmine-node ./test"
   },
   "author": "Bryan Hughes <bryan@nebri.us>",
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
 }

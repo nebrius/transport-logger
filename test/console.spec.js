@@ -31,8 +31,7 @@ waitsFor
 */
 
 var path = require('path'),
-    exec = require('child_process').exec,
-    dateRegex = '[A-Z][a-z]{2} [A-Z][a-z]{2} [0-9]{2} [0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.*';
+    exec = require('child_process').exec;
 
 describe('Console tests', function() {
 
@@ -130,8 +129,8 @@ describe('Console tests', function() {
       return finished;
     });
     runs(function () {
-      expect(output.stdout).toMatch(new RegExp('^' + dateRegex + ': info\n' + dateRegex + ': debug\n' + dateRegex + ': trace\n' + '$', 'm'));
-      expect(output.stderr).toMatch(new RegExp('^' + dateRegex + ': error\n' + dateRegex + ': warn\n' + '$', 'm'));
+      expect(output.stdout).toMatch(new RegExp('^.*?: info\n.*?: debug\n.*?: trace\n$', 'm'));
+      expect(output.stderr).toMatch(new RegExp('^.*?: error\n.*?: warn\n' + '$', 'm'));
       expect(output.error).toBeNull();
     });
   });
@@ -180,10 +179,8 @@ describe('Console tests', function() {
       return finished;
     });
     runs(function () {
-      expect(output.stdout).toMatch(new RegExp('^\u001b\\[39m\\[INFO\\] ' + dateRegex + ': info\u001b\\[39m\n\u001b\\[39m\\[DEBUG\\] ' +
-        dateRegex + ': debug\u001b\\[39m\n\u001b\\[37m\\[TRACE\\] ' + dateRegex + ': trace\u001b\\[39m\n$', 'm'));
-      expect(output.stderr).toMatch(new RegExp('^\u001b\\[31m\\[ERROR\\] ' + dateRegex + ': error\u001b\\[39m\n\u001b\\[33m\\[WARN\\] ' +
-        dateRegex + ': warn\u001b\\[39m\n$', 'm'));
+      expect(output.stdout).toMatch(new RegExp('^\u001b\\[39m\\[INFO\\] .*?: info\u001b\\[39m\n\u001b\\[39m\\[DEBUG\\] .*?: debug\u001b\\[39m\n\u001b\\[37m\\[TRACE\\] .*?: trace\u001b\\[39m\n$', 'm'));
+      expect(output.stderr).toMatch(new RegExp('^\u001b\\[31m\\[ERROR\\] .*?: error\u001b\\[39m\n\u001b\\[33m\\[WARN\\] .*?: warn\u001b\\[39m\n$', 'm'));
       expect(output.error).toBeNull();
     });
   });

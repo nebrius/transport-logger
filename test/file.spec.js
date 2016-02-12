@@ -32,8 +32,7 @@ waitsFor
 
 var path = require('path'),
     fs = require('fs'),
-    exec = require('child_process').exec,
-    dateRegex = '[A-Z][a-z]{2} [A-Z][a-z]{2} [0-9]{2} [0-9]{4} [0-9]{2}:[0-9]{2}:[0-9]{2}.*';
+    exec = require('child_process').exec;
 
 describe('File tests', function() {
 
@@ -143,7 +142,7 @@ describe('File tests', function() {
       var logPath = output.stdout.trim(),
           contents = fs.readFileSync(logPath).toString();
       fs.unlinkSync(logPath);
-      expect(contents).toMatch(new RegExp('^' + dateRegex + ': error\n' + dateRegex + ': warn\n' + dateRegex + ': info\n' + dateRegex + ': debug\n' + dateRegex + ': trace\n' + '$', 'm'));
+      expect(contents).toMatch(new RegExp('^.*?: error\n.*?: warn\n.*?: info\n.*?: debug\n.*?: trace\n$', 'm'));
       expect(output.stderr).toEqual('');
       expect(output.error).toBeNull();
     });
@@ -199,9 +198,7 @@ describe('File tests', function() {
       var logPath = output.stdout.trim(),
           contents = fs.readFileSync(logPath).toString();
       fs.unlinkSync(logPath);
-      expect(contents).toMatch(new RegExp('^\\[ERROR\\] ' + dateRegex + ': error\n\\[WARN\\] ' +
-        dateRegex + ': warn\n\\[INFO\\] ' + dateRegex + ': info\n\\[DEBUG\\] ' +
-        dateRegex + ': debug\n\\[TRACE\\] ' + dateRegex + ': trace\n$', 'm'));
+      expect(contents).toMatch(new RegExp('^\\[ERROR\\] .*?: error\n\\[WARN\\] .*?: warn\n\\[INFO\\] .*?: info\n\\[DEBUG\\] .*?: debug\n\\[TRACE\\] .*?: trace\n$', 'm'));
       expect(output.stderr).toEqual('');
       expect(output.error).toBeNull();
     });
