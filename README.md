@@ -28,8 +28,8 @@ npm install transport-logger
 Instantiating a logger without any arguments creates a console logger with five levels ('error', 'warn', 'info', 'debug', and 'trace') and a minimum logging level of 'info'.
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger();
+var Logger = require('transport-logger');
+var logger = new Logger();
 
 logger.error('error');
 logger.warn('warn');
@@ -51,13 +51,13 @@ info
 The output can be customized as follows:
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger({
-		minLevel: 'trace',
-		timestamp: true,
-		prependLevel: true,
-		colorize: true
-	});
+var Logger = require('transport-logger');
+var logger = new Logger({
+  minLevel: 'trace',
+  timestamp: true,
+  prependLevel: true,
+  colorize: true
+});
 
 logger.error('error');
 logger.warn('warn');
@@ -83,10 +83,10 @@ Further customization of output can be accomplished using a formatter callback f
 To log to a file, specify a path in the options object:
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger({
-		destination: 'path/to/logfile'
-	});
+var Logger = require('transport-logger');
+var logger = new Logger({
+  destination: 'path/to/logfile'
+});
 
 logger.error('error');
 logger.warn('warn');
@@ -98,11 +98,11 @@ logger.trace('trace');
 When logging to a file, it may be useful to cap files at a certain size. Setting the maxLines option will cause the current log file to be moved to a new filed called [destination].# once maxLines number of lines is reached. The number at the end the filename is incremented each time a new file is archived, such that [destination].1 is older than [destination].2
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger({
-		destination: 'path/to/logfile',
-		maxLines: 5
-	});
+var Logger = require('transport-logger');
+var logger = new Logger({
+  destination: 'path/to/logfile',
+  maxLines: 5
+});
 
 logger.error('error');
 logger.warn('warn');
@@ -118,13 +118,13 @@ logger.info('new'); // Will be the first line logged to the new file
 To log to multiple transports, specify an array of configuration options
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger([{
-		destination: 'path/to/logfile',
-		minLevel: 'trace'
-	}, {
-		minLevel: 'debug'
-	}]);
+var Logger = require('transport-logger');
+var logger = new Logger([{
+  destination: 'path/to/logfile',
+  minLevel: 'trace'
+}, {
+  minLevel: 'debug'
+}]);
 
 logger.error('error');
 logger.warn('warn');
@@ -140,28 +140,28 @@ To use the default console logger as one of the transports, just specify an empt
 To use custom log levels, specify an object mapping log level names to colors as the second argument to the Logger constructor:
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger({
-		minLevel: 'b',
-		colorize: true
-	}, {
-		levels: [{
-				id: 'a',
-				color: 'red'
-			}, {
-				id: 'b',
-				color: 'green'
-			}, {
-				id: 'c',
-				color: 'blue'
-			}, {
-				id: 'd',
-				color: 'cyan'
-			}, {
-				id: 'e',
-				color: 'magenta'
-			}]
-	});
+var Logger = require('transport-logger');
+var logger = new Logger({
+  minLevel: 'b',
+  colorize: true
+}, {
+  levels: [{
+    id: 'a',
+    color: 'red'
+  }, {
+    id: 'b',
+    color: 'green'
+  }, {
+    id: 'c',
+    color: 'blue'
+  }, {
+    id: 'd',
+    color: 'cyan'
+  }, {
+    id: 'e',
+    color: 'magenta'
+  }]
+});
 
 logger.a('a');
 logger.b('b');
@@ -179,16 +179,16 @@ Note: if one of the transports is a console transport and the log level is not a
 Each transport can have a name assigned to it, so that they can be referenced later. With named transports, you can specify a different message for each transport in a log. This can be used, for example, to log a message that is localized for the user to the console, but log a message that is localized for the developer to a file.
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger([{
-		name: 'file',
-		destination: 'path/to/logfile'
-	},{
-		name: 'console'
-	}]);
+var Logger = require('transport-logger');
+var logger = new Logger([{
+  name: 'file',
+  destination: 'path/to/logfile'
+},{
+  name: 'console'
+}]);
 logger.info({
-	console: 'Dies ist eine Nachricht',
-	file: 'This is a message'
+  console: 'Dies ist eine Nachricht',
+  file: 'This is a message'
 })
 ```
 
@@ -197,12 +197,12 @@ logger.info({
 If the built-in options are not sufficient for your logging needs, you can define a formatter function to perform any arbitrary formatting:
 
 ```JavaScript
-var Logger = require('transport-logger'),
-	logger = new Logger({
-		formatter: function (messages, level, settings) {
-			return level.id + '?' + messages.join('+');
-		}
-	});
+var Logger = require('transport-logger');
+var logger = new Logger({
+  formatter: function (messages, level, settings) {
+    return level.id + '?' + messages.join('+');
+  }
+});
 
 logger.error('error', 'foo');
 logger.warn('warn', 'foo');

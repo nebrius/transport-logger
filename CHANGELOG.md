@@ -1,3 +1,11 @@
+## 1.0.1
+* Cleaned up code formatting in documentation examples
+* Updated URLs
+
+## 1.0.0
+* Switched to semver versioning (this is NOT a breaking change)
+* Moved code to GitHub
+
 ## 0.1.6
 
 ### Miscellaneous
